@@ -36,5 +36,18 @@ namespace ContestProject.Model.EF.Repository
 
         }
         public async Task<List<Result>> GetResults() => await _dbContext.Results.Include(c=> c.User).Include(c=> c.Contest).ToListAsync();
+        public async Task Update(string name,string context, string result)
+        {
+            var user = await _dbContext.Results
+                .Include(c=> c.User)
+                .Include(c=>c.Contest)
+                .FirstOrDefaultAsync(c => c.User.FullName == name && c.Contest.Name == context);
+            if(user != null)
+            {
+                user.ResultContest = result;
+                await _dbContext.SaveChangesAsync();
+            }
+
+        }
     }
 }

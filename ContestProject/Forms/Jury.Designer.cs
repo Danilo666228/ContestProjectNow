@@ -33,6 +33,12 @@
             this.cmbContest = new System.Windows.Forms.ComboBox();
             this.txbResult = new System.Windows.Forms.TextBox();
             this.btnAddResult = new System.Windows.Forms.Button();
+            this.dgwResult = new System.Windows.Forms.DataGridView();
+            this.txbFullName = new System.Windows.Forms.TextBox();
+            this.txbContest = new System.Windows.Forms.TextBox();
+            this.btnRed = new System.Windows.Forms.Button();
+            this.txbNewResult = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwResult)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDate
@@ -84,11 +90,56 @@
             this.btnAddResult.UseVisualStyleBackColor = true;
             this.btnAddResult.Click += new System.EventHandler(this.btnAddResult_Click);
             // 
+            // dgwResult
+            // 
+            this.dgwResult.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwResult.Location = new System.Drawing.Point(252, 12);
+            this.dgwResult.Name = "dgwResult";
+            this.dgwResult.Size = new System.Drawing.Size(824, 402);
+            this.dgwResult.TabIndex = 4;
+            // 
+            // txbFullName
+            // 
+            this.txbFullName.Location = new System.Drawing.Point(70, 287);
+            this.txbFullName.Name = "txbFullName";
+            this.txbFullName.Size = new System.Drawing.Size(100, 20);
+            this.txbFullName.TabIndex = 5;
+            // 
+            // txbContest
+            // 
+            this.txbContest.Location = new System.Drawing.Point(70, 326);
+            this.txbContest.Name = "txbContest";
+            this.txbContest.Size = new System.Drawing.Size(100, 20);
+            this.txbContest.TabIndex = 5;
+            // 
+            // btnRed
+            // 
+            this.btnRed.Location = new System.Drawing.Point(70, 405);
+            this.btnRed.Name = "btnRed";
+            this.btnRed.Size = new System.Drawing.Size(75, 23);
+            this.btnRed.TabIndex = 6;
+            this.btnRed.Text = "button1";
+            this.btnRed.UseVisualStyleBackColor = true;
+            this.btnRed.Click += new System.EventHandler(this.btnRed_Click);
+            // 
+            // txbNewResult
+            // 
+            this.txbNewResult.Location = new System.Drawing.Point(70, 366);
+            this.txbNewResult.Name = "txbNewResult";
+            this.txbNewResult.Size = new System.Drawing.Size(100, 20);
+            this.txbNewResult.TabIndex = 5;
+            this.txbNewResult.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
             // Jury
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(737, 450);
+            this.ClientSize = new System.Drawing.Size(1120, 450);
+            this.Controls.Add(this.btnRed);
+            this.Controls.Add(this.txbNewResult);
+            this.Controls.Add(this.txbContest);
+            this.Controls.Add(this.txbFullName);
+            this.Controls.Add(this.dgwResult);
             this.Controls.Add(this.btnAddResult);
             this.Controls.Add(this.txbResult);
             this.Controls.Add(this.cmbContest);
@@ -97,6 +148,7 @@
             this.Name = "Jury";
             this.Text = "Jury";
             this.Load += new System.EventHandler(this.Jury_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgwResult)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -109,5 +161,10 @@
         private System.Windows.Forms.ComboBox cmbContest;
         private System.Windows.Forms.TextBox txbResult;
         private System.Windows.Forms.Button btnAddResult;
+        private System.Windows.Forms.DataGridView dgwResult;
+        private System.Windows.Forms.TextBox txbFullName;
+        private System.Windows.Forms.TextBox txbContest;
+        private System.Windows.Forms.Button btnRed;
+        private System.Windows.Forms.TextBox txbNewResult;
     }
 }

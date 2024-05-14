@@ -35,5 +35,11 @@ namespace ContestProject.Model.EF.Repository
         }
         public async Task<List<User>> GetUsers() => await _dbContext.Users.ToListAsync();
         public async Task<List<User>> GetUserNoOrg() => await _dbContext.Users.Where(c => c.Role.Name != "Организатор").ToListAsync();
+        public async Task DeleteUser(string email)
+        {
+            var user = await _dbContext.Users.FirstOrDefaultAsync(c => c.Email == email);
+            _dbContext.Users.Remove(user);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

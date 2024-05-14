@@ -26,8 +26,7 @@ namespace ContestProject.Forms
         private async void btnLogin_Click(object sender, EventArgs e)
         {
             
-            string email = txbLogin.Text;
-            string password = txbPassword.Text;
+            
             bool Validated = true;
             string CapText = "a";
 
@@ -101,7 +100,10 @@ namespace ContestProject.Forms
             }
         }
 
-
+        private void timer1_Tick(object sender, EventArgs e)
+        {
+            
+        }
     }
 }
 

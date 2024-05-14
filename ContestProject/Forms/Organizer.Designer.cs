@@ -44,6 +44,8 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.dgwUsers = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // lblDate
@@ -205,11 +207,21 @@
             this.label7.TabIndex = 4;
             this.label7.Text = "Повторите пароль:";
             // 
+            // dgwUsers
+            // 
+            this.dgwUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dgwUsers.Location = new System.Drawing.Point(578, 84);
+            this.dgwUsers.Name = "dgwUsers";
+            this.dgwUsers.Size = new System.Drawing.Size(597, 368);
+            this.dgwUsers.TabIndex = 5;
+            this.dgwUsers.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgwUsers_CellClick);
+            // 
             // Organizer
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(616, 526);
+            this.ClientSize = new System.Drawing.Size(1200, 526);
+            this.Controls.Add(this.dgwUsers);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -229,6 +241,7 @@
             this.Name = "Organizer";
             this.Activated += new System.EventHandler(this.Organizer_Activated);
             this.Load += new System.EventHandler(this.Organizer_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.dgwUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -252,6 +265,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.DataGridView dgwUsers;
     }
 }
 

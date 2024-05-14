@@ -21,7 +21,18 @@ namespace ContestProject.Forms
         {
             InitializeComponent();
             WelcomeUser();
+            InitDGW();
 
+        }
+        private async void InitDGW()
+        {
+            var results = await dbResult.GetResults();
+            dgwResult.DataSource = results.Select(c => new
+            {
+                c.User.FullName,
+                c.Contest.Name,
+                c.ResultContest
+            }).ToList();
         }
         private async void InitComboBoxes()
         {
@@ -72,12 +83,24 @@ namespace ContestProject.Forms
 
         private void cmbUser_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
         }
 
         private void cmbContest_SelectedIndexChanged(object sender, EventArgs e)
         {
-           
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private async void btnRed_Click(object sender, EventArgs e)
+        {
+            await dbResult.Update(txbFullName.Text, txbContest.Text, txbNewResult.Text);
+            MessageBox.Show("Данные обновлены");
+            InitDGW();
         }
     }
 }

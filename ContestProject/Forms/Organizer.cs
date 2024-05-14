@@ -9,22 +9,16 @@ namespace ContestProject
 {
     public partial class Organizer : Form
     {
+        UserRepository dbUser = new UserRepository(new ContestDbContext());
         public Organizer()
         {
             InitializeComponent();
-
+            InitDGW();
         }
-        private void RegButton()
+        private async void InitDGW()
         {
-            if (!string.IsNullOrWhiteSpace(txbEmail.Text)
-              || !string.IsNullOrWhiteSpace(txbPassword.Text)
-               || !string.IsNullOrWhiteSpace(cmbGender.Text)
-               || !string.IsNullOrWhiteSpace(txbFullName.Text)
-               || !string.IsNullOrWhiteSpace(txbPhone.Text)
-               || !string.IsNullOrWhiteSpace(cmbRole.Text))
-            {
-                btnAdd.Enabled = true;
-            }
+            var users = await dbUser.GetUserNoOrg();
+            dgwUsers.DataSource = users;
         }
         private async void InitComboBox()
         {
@@ -36,7 +30,7 @@ namespace ContestProject
 
             cmbRole.DataSource = roles;
 
-            
+
         }
         private void WelcomeUser()
         {
@@ -92,11 +86,24 @@ namespace ContestProject
 
         private void Organizer_Activated(object sender, EventArgs e)
         {
-            RegButton();
+
         }
 
         private void label5_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private async void dgwUsers_CellClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if (MessageBox.Show("Вы уверены", "Удаление", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                string name = dgwUsers.Rows[e.RowIndex].Cells["email"].Value.ToString();
+                await dbUser.DeleteUser(name);
+                MessageBox.Show("Успешно удален");
+                InitDGW();
+            }
+
 
         }
     }

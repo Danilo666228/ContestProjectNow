@@ -80,6 +80,10 @@
             this.CaptchaIMG.TabIndex = 3;
             this.CaptchaIMG.TabStop = false;
             // 
+            // timer1
+            // 
+            this.timer1.Tick += new System.EventHandler(this.timer1_Tick);
+            // 
             // Authorized
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
